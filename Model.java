@@ -13,15 +13,25 @@ public class Model {
     public boolean rangeSetter(String userInput) {
         if ((Pattern.matches("[0-9]+", userInput) == true)) { // If contains only numbers
             this.parsedNumber = Integer.parseInt(userInput);
-            if (this.parsedNumber == (inputRecorder[0] + 1) || this.parsedNumber == (inputRecorder[0] + 2) ) {
+            if(this.parsedNumber == (inputRecorder[0] + 1) || this.parsedNumber == (inputRecorder[0] + 2)) {
+                if (this.parsedNumber == 0 || this.parsedNumber == 1 ) {
+                    this.inputRecorder[containerNumber] = this.parsedNumber;
+                    this.containerNumber++;
+                    return true;
+                }
                 ineedvariable = 6; // I thought better of player
                 return false;
-            }
-            if (this.parsedNumber < inputRecorder[0]) {
+            }    
+            else if (this.parsedNumber < inputRecorder[0]) {
                 ineedvariable = 4; // min > max
                 return false;
             }
             else if (this.parsedNumber == inputRecorder[0]) {
+                if (this.parsedNumber == 0) {
+                    this.inputRecorder[containerNumber] = this.parsedNumber;
+                    this.containerNumber++;
+                    return true;
+                }
                 ineedvariable = 5; //min == max
                 return false;
             }
@@ -46,6 +56,7 @@ public class Model {
     public boolean correctnessProofer(int userInput) {
         if (userInput == this.targetNumber) {
             this.inputRecorder[containerNumber] = userInput;
+            this.containerNumber++;
             return true; //win
         }
         else {
