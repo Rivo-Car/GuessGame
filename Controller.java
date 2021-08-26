@@ -41,7 +41,7 @@ public class Controller {
         return userInput.nextInt();
     }
     private void proofer(Scanner userInput) {
-        view.printMessage(View.GAME_STARTS + View.ARROWS);
+        view.printMessage(View.GAME_STARTS + "[" + model.inputRecorder[0] + ", " + model.inputRecorder[1] + "]" + View.GOOD_LUCK + View.ARROWS);
         while (!model.correctnessProofer(inputValidator(userInput))) {
             if (model.ineedvariable == 1) {
                 view.printMessage(View.NEED_LOWER + "[" + model.inputRecorder[0] + ", " + model.inputRecorder[1] + "]" + View.PREVIOUS + model.inputRecorder[model.containerNumber - 1] + View.ARROWS);;

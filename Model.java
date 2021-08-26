@@ -40,7 +40,7 @@ public class Model {
         else {
             this.inputRecorder[containerNumber] = userInput;
             this.containerNumber++;
-            if (inputRecorder[0] > userInput || inputRecorder[1] < userInput) {
+            if (inputRecorder[0] >= userInput || inputRecorder[1] <= userInput) {
                 ineedvariable = 3;//out of range
             }
             else {
