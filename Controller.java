@@ -41,16 +41,16 @@ public class Controller {
         return userInput.nextInt();
     }
     private void proofer(Scanner userInput) {
-        view.printMessage(View.GAME_STARTS + "[" + model.inputRecorder[0] + ", " + model.inputRecorder[1] + "]" + View.GOOD_LUCK + View.ARROWS);
+        view.printMessage(View.GAME_STARTS + "[" + (model.inputRecorder[0] + 1) + ", " + (model.inputRecorder[1] - 1) + "]" + View.GOOD_LUCK + View.ARROWS);
         while (!model.correctnessProofer(inputValidator(userInput))) {
             if (model.ineedvariable == 1) {
-                view.printMessage(View.NEED_LOWER + "[" + model.inputRecorder[0] + ", " + model.inputRecorder[1] + "]" + View.PREVIOUS + model.inputRecorder[model.containerNumber - 1] + View.ARROWS);;
+                view.printMessage(View.NEED_LOWER + "[" + (model.inputRecorder[0] + 1) + ", " + (model.inputRecorder[1] - 1) + "]" + View.PREVIOUS + model.inputRecorder[model.containerNumber - 1] + View.ARROWS);;
             }
             else if (model.ineedvariable == 2) {
-                view.printMessage(View.NEED_HIGHER + "[" + model.inputRecorder[0] + ", " + model.inputRecorder[1] + "]" + View.PREVIOUS + model.inputRecorder[model.containerNumber - 1] + View.ARROWS);
+                view.printMessage(View.NEED_HIGHER + "[" + (model.inputRecorder[0] + 1) + ", " + (model.inputRecorder[1] - 1) + "]" + View.PREVIOUS + model.inputRecorder[model.containerNumber - 1] + View.ARROWS);
             }
             else if (model.ineedvariable == 3) {
-                view.printMessage(View.OUTOFRANGE + "[" + model.inputRecorder[0] + ", " + model.inputRecorder[1] + "]" + View.PREVIOUS + model.inputRecorder[model.containerNumber - 1] + View.ARROWS);
+                view.printMessage(View.OUTOFRANGE + "[" + (model.inputRecorder[0] + 1) + ", " + (model.inputRecorder[1] - 1) + "]" + View.PREVIOUS + model.inputRecorder[model.containerNumber - 1] + View.ARROWS);
             }
         } 
     }
