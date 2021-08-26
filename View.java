@@ -22,7 +22,6 @@ public class View {
     public static final String PROOFER_ERROR = "You either entered the wrong data type or unexpected error happened, try once again.";
     public static final String ARROWS = "\n>>>> ";
     public static final String PREVIOUS = "\nPrevious guess: ";
-
     public static final String CONGRATULATION_MESSAGE = "\nThis calls for celebrating! Congratulations!"
     + "\nI knew it was only a matter of time. Well done!\n"
     + "\nStatistics:"
