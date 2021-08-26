@@ -46,7 +46,6 @@ public class Model {
     public boolean correctnessProofer(int userInput) {
         if (userInput == this.targetNumber) {
             this.inputRecorder[containerNumber] = userInput;
-            this.containerNumber++;
             return true; //win
         }
         else {
