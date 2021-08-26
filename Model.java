@@ -13,6 +13,18 @@ public class Model {
     public boolean rangeSetter(String userInput) {
         if ((Pattern.matches("[0-9]+", userInput) == true)) { // If contains only numbers
             this.parsedNumber = Integer.parseInt(userInput);
+            if (this.parsedNumber == (inputRecorder[0] + 1) || this.parsedNumber == (inputRecorder[0] + 2) ) {
+                ineedvariable = 6; // I thought better of player
+                return false;
+            }
+            if (this.parsedNumber < inputRecorder[0]) {
+                ineedvariable = 4; // min > max
+                return false;
+            }
+            else if (this.parsedNumber == inputRecorder[0]) {
+                ineedvariable = 5; //min == max
+                return false;
+            }
             this.inputRecorder[containerNumber] = this.parsedNumber;
             this.containerNumber++;
             return true;

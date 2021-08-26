@@ -12,6 +12,9 @@ public class View {
     + " but make sure it's greater then minimum number.\n"
     + "Press <Enter> to skip. (It sets maximum range value to 100)"};
     public static final String LIMIT_ERROR = "You either entered the wrong data type or unexpected error happened, try once again.";
+    public static final String MIN_MAX = "Minimum value is greater then maximum, try greater one!";
+    public static final String MIN_MAX_SAME = "Minimum value equals to maximum, try greater one!";
+    public static final String DISSAPOINTMENT = "I thought better of YOU! Don't be that lazy and try a greater number!";
     public static final String GAME_STARTS = "\nGame starts!\n* Pseudorandom number is set!\n* Range: ";
     public static final String GOOD_LUCK = "\n* Good luck and may the Force be with you!";
     public static final String NEED_LOWER = "Your guess is too high. Try lower!"

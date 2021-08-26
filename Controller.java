@@ -30,7 +30,18 @@ public class Controller {
     }
     private void limitSetter(Scanner scannerInput) {
         while (!model.rangeSetter(scannerInput.nextLine())) {
-            view.printMessage(View.LIMIT_ERROR + View.ARROWS);
+            if (model.ineedvariable == 4) {
+                view.printMessage(View.MIN_MAX + View.ARROWS);
+            }
+            else if (model.ineedvariable == 5) {
+                view.printMessage(View.MIN_MAX_SAME + View.ARROWS);
+            }
+            else if(model.ineedvariable == 6) {
+                view.printMessage(View.DISSAPOINTMENT + View.ARROWS);
+            }
+            else {
+                view.printMessage(View.LIMIT_ERROR + View.ARROWS);
+            }
         }
     }
     public int inputValidator(Scanner userInput) {
