@@ -1,4 +1,3 @@
-import java.util.Arrays;
 import java.util.regex.Pattern;
 
 public class Model {
@@ -18,7 +17,7 @@ public class Model {
             this.containerNumber++;
             return true;
         }
-        else if ((userInput.equals(""))) {
+        else if ((userInput.equals(""))) { //if <enter>
             this.inputRecorder[containerNumber] = Model.RANGE[containerNumber];
             this.containerNumber++;
             return true;
@@ -30,16 +29,13 @@ public class Model {
     // this method creates random number
     public void targetNumber() {
         this.targetNumber = (int) Math.floor(Math.random() * (this.inputRecorder[1] - this.inputRecorder[0]) + this.inputRecorder[0]);
-        System.out.println(targetNumber);
     }
     // this method checks whether entered number is equal to target number
     public boolean correctnessProofer(int userInput) {
         if (userInput == this.targetNumber) {
             this.inputRecorder[containerNumber] = userInput;
             this.containerNumber++;
-            int[] outputArray = Arrays.copyOfRange(inputRecorder, 2, this.containerNumber);
-            System.out.println(Arrays.toString(outputArray));
-            return true;
+            return true; //win
         }
         else {
             this.inputRecorder[containerNumber] = userInput;
