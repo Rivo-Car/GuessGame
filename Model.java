@@ -41,7 +41,7 @@ public class Model {
     }
     // this method creates random number
     public void targetNumber() {
-        this.targetNumber = (int) Math.floor(Math.random() * (this.inputRecorder[1] - this.inputRecorder[0]) + this.inputRecorder[0]);
+        this.targetNumber = (int) Math.floor(Math.random() * ((this.inputRecorder[1] - 1) - (this.inputRecorder[0] + 1)) + this.inputRecorder[0] + 1);
     }
     // this method checks whether entered number is equal to target number
     public boolean correctnessProofer(int userInput) {
