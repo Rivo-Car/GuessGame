@@ -11,18 +11,16 @@ public class View {
     + "Press <Enter> to skip. (It sets minimum range value to 0)","Set maximum value for range, enter any number between 0 and 2147483647,"
     + " but make sure it's greater then minimum number.\n"
     + "Press <Enter> to skip. (It sets maximum range value to 100)"};
+    public static final String[] INDEED_OUTPUT_1 = {null, "Your guess is too high. Try lower!"
+    	    + "\nUpdated range is: ", "Your guess is too low. Try higher!"
+    	    	    + "\nUpdated range is: ", "Your guess is out of range. Try again!"
+    	    	    	    + "\nCurrent range is: " };
+    public static final String[] INDEED_OUTPUT_2 = {null, "Minimum value is greater then maximum, try greater one!",
+    		"Minimum value equals to maximum, try greater one!",
+    		"Don't be that lazy and try a greater number!" };
     public static final String LIMIT_ERROR = "You either entered the wrong data type or unexpected error happened, try once again.";
-    public static final String MIN_MAX = "Minimum value is greater then maximum, try greater one!";
-    public static final String MIN_MAX_SAME = "Minimum value equals to maximum, try greater one!";
-    public static final String DISSAPOINTMENT = "Don't be that lazy and try a greater number!";
     public static final String GAME_STARTS = "\nGame starts!\n* Pseudorandom number is set!\n* Range: ";
     public static final String GOOD_LUCK = "\n* Good luck and may the Force be with you!";
-    public static final String NEED_LOWER = "Your guess is too high. Try lower!"
-    + "\nUpdated range is: ";
-    public static final String NEED_HIGHER = "Your guess is too low. Try higher!"
-    + "\nUpdated range is: ";
-    public static final String OUTOFRANGE = "Your guess is out of range. Try again!"
-    + "\nCurrent range is: ";
     public static final String PROOFER_ERROR = "You either entered the wrong data type or unexpected error happened, try once again.";
     public static final String ARROWS = "\n>>>> ";
     public static final String PREVIOUS = "\nPrevious guess: ";
@@ -34,5 +32,14 @@ public class View {
 
     public void printMessage(String message){
         System.out.print(message);
+    }
+    
+    public String mergeStrings(String... strings) {
+    	String newStr = "";
+    	
+    	for(String s: strings) {
+    		newStr += s;
+    	}
+    	return newStr;
     }
 }
