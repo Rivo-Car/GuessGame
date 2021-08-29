@@ -12,6 +12,7 @@ public class Controller {
     public void applicationBoot() {
         view.printMessage(View.WELCOMMING_MESSAGE);
         Scanner scannerInput = new Scanner(System.in);
+        
         for (int i = 0; i < 2; i++) {
             view.printMessage(View.LIMIT_MESSAGE[i] + View.ARROWS);
             limitSetter(scannerInput);
@@ -28,41 +29,47 @@ public class Controller {
             }
         }
     }
+    
     private void limitSetter(Scanner scannerInput) {
+    	
         while (!model.rangeSetter(scannerInput.nextLine())) {
-            if (model.ineedvariable == 4) {
-                view.printMessage(View.MIN_MAX + View.ARROWS);
-            }
-            else if (model.ineedvariable == 5) {
-                view.printMessage(View.MIN_MAX_SAME + View.ARROWS);
-            }
-            else if(model.ineedvariable == 6) {
-                view.printMessage(View.DISSAPOINTMENT + View.ARROWS);
-            }
-            else {
+        	
+            if (model.ineedvariable > 3) {
+            	view.printMessage(showByIndeedvariable(model.ineedvariable));           	
+            } else {
                 view.printMessage(View.LIMIT_ERROR + View.ARROWS);
             }
         }
     }
+    
     public int inputValidator(Scanner userInput) {
+    	
         while(!userInput.hasNextInt()) {
             view.printMessage(View.PROOFER_ERROR + View.ARROWS);
             userInput.next();
         }
         return userInput.nextInt();
     }
+    
     private void proofer(Scanner userInput) {
         view.printMessage(View.GAME_STARTS + "[" + (model.inputRecorder[0] + 1) + ", " + (model.inputRecorder[1] - 1) + "]" + View.GOOD_LUCK + View.ARROWS);
+        
         while (!model.correctnessProofer(inputValidator(userInput))) {
-            if (model.ineedvariable == 1) {
-                view.printMessage(View.NEED_LOWER + "[" + (model.inputRecorder[0] + 1) + ", " + (model.inputRecorder[1] - 1) + "]" + View.PREVIOUS + model.inputRecorder[model.containerNumber - 1] + View.ARROWS);;
-            }
-            else if (model.ineedvariable == 2) {
-                view.printMessage(View.NEED_HIGHER + "[" + (model.inputRecorder[0] + 1) + ", " + (model.inputRecorder[1] - 1) + "]" + View.PREVIOUS + model.inputRecorder[model.containerNumber - 1] + View.ARROWS);
-            }
-            else if (model.ineedvariable == 3) {
-                view.printMessage(View.OUTOFRANGE + "[" + (model.inputRecorder[0] + 1) + ", " + (model.inputRecorder[1] - 1) + "]" + View.PREVIOUS + model.inputRecorder[model.containerNumber - 1] + View.ARROWS);
-            }
+        	view.printMessage(showByIndeedvariable(model.ineedvariable));
         } 
+    }
+    
+    private String showByIndeedvariable(int indeedvariable) {
+    	String result = "";
+    	
+    	if (indeedvariable <= 3) {
+    		result = view.mergeStrings(View.INDEED_OUTPUT_1[indeedvariable],"[" + (model.inputRecorder[0] + 1), 
+    				", " + (model.inputRecorder[1] - 1), "]",
+    				View.PREVIOUS + model.inputRecorder[model.containerNumber - 1],View.ARROWS);
+    	}
+    	else { 
+    		result = view.mergeStrings(View.INDEED_OUTPUT_2[indeedvariable - 3],View.ARROWS );
+    	}
+    	return result;
     }
 }
